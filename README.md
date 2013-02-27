@@ -20,7 +20,7 @@ There is only simple summary of responses in Google Drive. So you can make your 
 		
 Enter your form ID to input field in app. Form ID you can find in address bar:
 
-_Example: https://docs.google.com/forms/d/**1Bsv2Yb93JYs7gfGr_QZ3UE54syOrB6OGylmEamA_s7U**/viewform_
+_Example: https://docs.google.com/forms/d/<strong>1Bsv2Yb93JYs7gfGr_QZ3UE54syOrB6OGylmEamA_s7U</strong>/viewform_
 		
 ### Step 2: Enter your form ID
 
