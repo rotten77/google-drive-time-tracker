@@ -69,7 +69,7 @@
 			</div>
 
 			<div class="alert alert-info" id="time_spend">
-				Time spend: <strong id="time_spend_value">#</strong>
+				Time spent: <strong id="time_spend_value">#</strong>
 				<input name="time" id="time" type="hidden" value="">
 			</div>
 			

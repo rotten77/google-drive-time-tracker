@@ -10,13 +10,13 @@ Simple time tracker with saving data to your Google Drive.
 ### Step 1: Make a form
 
 
-Open [this form](https://docs.google.com/forms/d/1Bsv2Yb93JYs7gfGr_QZ3UE54syOrB6OGylmEamA_s7U/edit?usp=sharing) and make a copy (**File &raquo; Make a copy**, you must be logged in).
+Open [this form](https://docs.google.com/forms/d/1Bsv2Yb93JYs7gfGr_QZ3UE54syOrB6OGylmEamA_s7U/edit?usp=sharing) and make a copy (<strong>File &raquo; Make a copy</strong>, you must be logged in).
 		
 Please **do not change this form** so other users can use it. **Make your copy and close original form**.
 		
 Now you can edit your Category and Task values.
 		
-There is only simple summary of responses in Google Drive. So you can make your own better summary with data from new table of responses (**Choose response** &raquo; **New spreadsheet**).
+There is only simple summary of responses in Google Drive. So you can make your own better summary with data from new table of responses (<strong>Choose response &raquo; New spreadsheet</strong>).
 		
 Enter your form ID to input field in app. Form ID you can find in address bar:
 
@@ -28,7 +28,7 @@ Enter your form ID in the input field in app.
 
 
 #### Tip for Chrome users:
-You can use this app as a &quot;desktop app&quot;. Simply make a shortcut (**Tools &raquo; Create application shortcuts**) to your desktop. It will looks like this:
+You can use this app as a &quot;desktop app&quot;. Simply make a shortcut (<strong>Tools &raquo; Create application shortcuts</strong>) to your desktop. It will looks like this:
 
 
 
