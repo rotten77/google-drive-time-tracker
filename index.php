@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php $origId = "1Bsv2Yb93JYs7gfGr_QZ3UE54syOrB6OGylmEamA_s7U";
+?><!DOCTYPE html>
 <html lang="cs">
 <head>
 	<meta charset="utf-8">
@@ -46,7 +47,7 @@
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="category">Category</label>
+				<label class="control-label" for="category">Category &#47; project</label>
 				<div class="controls">
 					<select name="category" id="category"></select>
 				</div>
@@ -84,7 +85,21 @@
 
 <div class="container" id="settings">
 		<h2>Step 1: Make a form</h2>
-		<p>Create copy of this form...</p>
+		<p>Open <a href="https://docs.google.com/forms/d/<?php echo $origId; ?>/edit?usp=sharing" target="_blank">this form</a> and make a copy (<strong>File &raquo; Make a copy</strong>, you must be logged in).</p>
+		
+		<div class="alert alert-warning">Please <strong>do not change this form</strong> so other users can use it. <strong>Make your copy and close original form</strong>.</div>
+		
+		<p>Now you can edit your Category and Task values.</p>
+		
+		<p>There is only simple summary of responses in Google Drive. 
+		So you can make your own better summary with data from new table of responses (<strong>Choose response</strong> &raquo; <strong>New spreadsheet</strong>).
+		</p>
+		
+		<p>Enter your form ID to next input field. Form ID you can find in address bar:</p>
+		
+		<div class="alert alert-info">
+			Example: https://docs.google.com/forms/d/ <span class="label label-info"><?php echo $origId; ?></span> /viewform
+		</div>
 		
 		<hr />
 		<h2>Step 2: Enter your form ID</h2>
@@ -103,6 +118,12 @@
 				</div>
 			</div>
 		</form>
+		
+		<hr />
+		<div class="alert alert-info">
+			<strong>Tip for Chrome users:</strong> You can use this app as a &quot;desktop app&quot;. Simply make a shortcut (<strong>Tools &raquo; Create application shortcuts</strong>) to your desktop.
+		</div>
+
 </div>
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -177,12 +198,13 @@
 							$('#task_err').show();
 							return false;
 						}
-						$.post("index.php", {
+						$.post("ajax.php", {
 								task: $('#task').val(),
 								category: $('#category option:selected').val(),
 								tag: $('#tag option:selected').val(),
 								time: $('#time').val(),
-								send_data: true
+								send_data: true,
+								form_id: localStorage.getItem("form_id")
 							});
 
 									$('#task').val("");

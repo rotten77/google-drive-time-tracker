@@ -70,6 +70,8 @@ if(isset($_POST['send_data'])) {
 	$tagId = str_replace("_", ".", $tagId);
 	$timeId = str_replace("_", ".", $timeId);
 
+	$time = str_replace(".", ",", $time);
+
 	$postData = array(
 			$taskId => $task,
 			$categoryId => $category,
@@ -84,5 +86,5 @@ if(isset($_POST['send_data'])) {
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
-	curl_exec($ch);
+	$result = curl_exec($ch);
 }
