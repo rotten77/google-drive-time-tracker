@@ -4,6 +4,28 @@ $categoryId = "entry_920947763";
 $tagId = "entry_662564008";
 $timeId = "entry_64794649";
 
+/**
+ * Time Converter
+ */
+function timeConvert($time) {
+	$time = str_replace(" ", "", $time);
+	$time = str_replace(".", ",", $time);
+	$time = trim($time);
+
+	if(preg_match("/:/", $time)) {
+		// return "je tam";
+
+		if(substr($time, 0, 1)==":") {
+			$minutes = substr($time, 1);
+		} else {
+			$timeArr = explode(":", $time);
+			$minutes = ($timeArr[0]*60)+(isset($timeArr[1]) ? $timeArr[1] : 0);
+		}
+		$time = str_replace(".", ",", round($minutes/60,2));
+	}
+
+	return $time;
+}
 
 /**
  * Data
@@ -70,13 +92,11 @@ if(isset($_POST['send_data'])) {
 	$tagId = str_replace("_", ".", $tagId);
 	$timeId = str_replace("_", ".", $timeId);
 
-	$time = str_replace(".", ",", $time);
-
 	$postData = array(
 			$taskId => $task,
 			$categoryId => $category,
 			$tagId => $tag,
-			$timeId => $time,
+			$timeId => timeConvert($time),
 			"submit" => true
 		);
 	$ch = curl_init();
@@ -87,4 +107,22 @@ if(isset($_POST['send_data'])) {
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
 	$result = curl_exec($ch);
+}
+
+/**
+ * Time Format
+ */
+if(isset($_GET['time_format'])) {
+	$time = isset($_GET['time_format']) ? $_GET['time_format'] : 0;
+	$time = str_replace(",", ".", $time);
+	$time = ($time*60*60)-3600;
+	$return = array();
+	$return['time'] = $time;
+	$return['time_format'] = date("H:i", $time);
+
+	header('Cache-Control: no-cache, must-revalidate');
+	header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+	header('Content-type: application/json');
+
+	echo json_encode($return);
 }

@@ -1,8 +1,11 @@
 Google Drive Time Tracker
 =========================
 
-Simple time tracker with saving data to your Google Drive.
-
+Simple time tracker with saving data to your Google Drive. Now you can edit spent time on your tasks. There is options for editing time (ex. 30 minutes):
+* :30
+* 0:30
+* 0,5
+* 0.5
 
 **[Live app here!](http://apps.rotten77.cz/time-tracker/)**
 
@@ -20,7 +23,7 @@ There is only simple summary of responses in Google Drive. So you can make your 
 		
 Enter your form ID to input field in app. Form ID you can find in address bar:
 
-_Example: https://docs.google.com/forms/d/<strong>1Bsv2Yb93JYs7gfGr_QZ3UE54syOrB6OGylmEamA_s7U</strong>/viewform_
+	Example: https://docs.google.com/forms/d/ [FORM ID] /viewform
 		
 ### Step 2: Enter your form ID
 

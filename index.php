@@ -60,6 +60,13 @@
 				</div>
 			</div>
 
+			<div class="control-group" id="time_spend">
+				<label class="control-label" for="time">Time spent</label>
+				<div class="controls">
+					<input type="text" id="time" name="time" class="input-small" />
+				</div>
+			</div>
+			
 			<div class="control-group">
 				<div class="controls">
 
@@ -68,10 +75,10 @@
 				Working from: <strong id="working_from_value">#</strong>
 			</div>
 
-			<div class="alert alert-info" id="time_spend">
+			<!--<div class="alert alert-info" id="time_spend">
 				Time spent: <strong id="time_spend_value">#</strong>
 				<input name="time" id="time" type="hidden" value="">
-			</div>
+			</div>-->
 			
 					<button type="submit" name="send_data" id="send_data" class="btn btn-primary">Send</button>
 					<button class="btn btn-primary" id="start">Start</button>
@@ -189,6 +196,10 @@
 						return n;
 					}
 
+					function formatDate(d) {
+						return (d.getHours()<10 ? '0' : '')+d.getHours()+":"+(d.getMinutes()<10 ? '0' : '')+d.getMinutes();
+					}
+
 					$('#form').submit(function(){
 						return false;
 					});
@@ -208,7 +219,7 @@
 							});
 
 									$('#task').val("");
-									$('#stop, #send_data, #working_from,#time_spend').hide();
+									$('#stop, #send_data, #working_from, #time_spend, #cancel').hide();
 									$('#start').show();
 									localStorage.setItem("lastTask", "");
 							
@@ -223,7 +234,7 @@
 						$('#stop, #working_from').show();
 
 						var d = new Date(lastTime);
-						$('#working_from_value').text((d.getHours()<10 ? '0' : '')+d.getHours()+":"+(d.getMinutes()<10 ? '0' : '')+d.getMinutes());
+						$('#working_from_value').text(formatDate(d));
 					} else {
 						$('#stop, #send_data, #working_from,#time_spend').hide();
 						$('#start').show();
@@ -237,7 +248,7 @@
 						localStorage.setItem("lastTask", $('#task').val());
 						$('#start, #send_data,#time_spend,#cancel').hide();
 						$('#stop, #working_from').show();
-						$('#working_from_value').text((d.getHours()<10 ? '0' : '')+d.getHours()+":"+(d.getMinutes()<10 ? '0' : '')+d.getMinutes());
+						$('#working_from_value').text(formatDate(d));
 					});
 					$('#stop').click(function(){
 						var lastTime = localStorage.getItem("lastTime")*1;
@@ -250,8 +261,14 @@
 						//timeSpend.replace(".", ",");
 						localStorage.setItem("lastTime", 0);
 
-						$('#time').val(timeSpend);
-						$('#time_spend_value').text(timeSpend+" hrs.");
+						
+						$('#time').val(0);
+
+							$.getJSON('./ajax.php?time_format='+timeSpend, function(data) {
+								$('#time').val(data['time_format']);
+							});
+
+						//$('#time_spend_value').text(timeSpend+" hrs.");
 
 						$('#start, #stop, #working_from').hide();
 						$('#send_data,#time_spend,#cancel').show();
@@ -282,6 +299,10 @@
 
 			$('#change_id').click(function(){
 				localStorage.setItem("form_id", "");
+			});
+
+			$('#task').keyup(function(){
+				localStorage.setItem("lastTask", $('#task').val());
 			});
 					
 		});
