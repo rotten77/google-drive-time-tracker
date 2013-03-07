@@ -7,6 +7,8 @@ Simple time tracker with saving data to your Google Drive. Now you can edit spen
 * 0,5
 * 0.5
 
+Your data is saved in your personal Google Drive and in your browser's LocalStorage. So you can close browser during working on task and open again after ending.
+
 **[Live app here!](http://apps.rotten77.cz/time-tracker/)**
 
 ## Use

@@ -61,6 +61,9 @@ if(isset($_GET['get_data'])) {
 		if($tag->nodeValue!="") $tags[] = $tag->nodeValue;
 	}
 
+	sort($categories);
+	sort($tags);
+
 	$return = array(
 			"categories" => $categories,
 			"tags" => $tags,
