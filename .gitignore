@@ -4,5 +4,8 @@ Thumbs.db
 # Folder config file
 Desktop.ini
 
+# Saved stats
+*.json
+
 # TODO Sublime list
 *.todo

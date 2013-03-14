@@ -1,6 +1,6 @@
 <?php $origId = "1Bsv2Yb93JYs7gfGr_QZ3UE54syOrB6OGylmEamA_s7U";
 ?><!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<title>Google Drive Time Tracker</title>
